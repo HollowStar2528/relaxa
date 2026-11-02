@@ -1,0 +1,1 @@
+global.mira_ini = obj_player;
