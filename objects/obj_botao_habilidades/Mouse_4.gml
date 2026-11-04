@@ -1,1 +1,0 @@
-habilidade_vendidas();

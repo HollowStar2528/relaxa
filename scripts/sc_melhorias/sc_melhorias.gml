@@ -24,10 +24,15 @@ global.mini_player = false;
 global.tiro_teleguiado = false;
 //imã
 global.ima = false;
-
-
-
-
-
-
-
+//invisibilidade
+global.invisivel = false;
+//escudo
+global.escudo = false;
+//portal
+global.portal = false;
+//distração
+global.distrair = false;
+//tiro paralisante
+global.paralisante = false;
+//mina
+global.mina = false;

@@ -45,8 +45,10 @@ function pausei(_opacidade = 1)
     }
 }
 
+//resetando o jogo
 function reset()
 {
+    //MELHORIAS
     //aumenta a durabilidade da arma
     global.penetracao = 1;
     //recarga mais rapida
@@ -60,7 +62,7 @@ function reset()
     //tamanho da bala
     global.tamanho_bala = 0;
     
-    //habilidades
+    //HABILIDADES
     //regeneração
     global.regen = false;
     //clonar player
@@ -73,9 +75,22 @@ function reset()
     global.tiro_teleguiado = false;
     //imã
     global.ima = false;
+    //invisibilidade
+    global.invisivel = false;
+    //escudo
+    global.escudo = false;
+    //portal
+    global.portal = false;
+    //distração
+    global.distrair = false;
+    //tiro paralisante
+    global.paralisante = false;
+    //mina
+    global.mina = false;
     
+    //VARIAVEIS
     global.pontos_requeridos = 5;
-    global.pontos = 0;
+    global.pontos = 4;
     global.moedas = 0;
     //dano do inimigo
     global.dano = 5;
@@ -85,4 +100,36 @@ function reset()
     global.pause = false;
     //colidi
     global.xcolidi = false;
+    //Nivel do jogador
+    global.nivel = 0;
+    //habilidades selecionadas
+    global.quant_habili = [];
 }
+
+//randomizando as habilidades escolhidas
+function escolhe_habilidade()
+{
+    //criar 3 habilidades
+    //elas não podem ser iguais
+    var _xpos, _id, _valor, _check;
+    _xpos = 0;
+    _check = [];
+    repeat (3) {
+        _valor = irandom(11);
+        //criando a carta de habilidade e salvando o id dela
+    	_id = instance_create_layer(590+_xpos, 384, layer, obj_escolhe_habili);
+        //se o valor da carta seja novo, ele for diferente de nenhum e não tiver sido escolhido antes então ele aparece
+        if (!array_contains(_check, _valor) and _valor != -4 and !array_contains(global.quant_habili, _valor)) {
+        	_id.valor = _valor;
+            array_push(_check, _valor);
+        }
+        //caso a carta já tiver sido selecionada antes ou o jogo não tenha gerado nenhum numero diferente ela se destroi
+        else {
+        	instance_destroy(_id);
+        }
+        //mudando a posição da proxima carta que será gerada
+        _xpos+=82;
+    }
+    
+}
+

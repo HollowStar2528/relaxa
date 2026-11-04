@@ -68,7 +68,6 @@ controla_player = function()
 	{
 		//descobrindo a direção que a pessoa está indo
 		var _dire = point_direction(0, 0, right - left, down - up);
-		show_debug_message(_dire);
 		
 		var _velh, _velv;
 		//me mexendo horizontalmente
