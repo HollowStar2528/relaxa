@@ -33,7 +33,7 @@ function direcao(_direcao = obj_player)
 //funcionalidade do pause
 function pausei(_opacidade = 1)
 {
-    if (global.pause == false)
+    if (global.loja == false)
     {
     	image_alpha = 0;
         exit;
@@ -41,7 +41,6 @@ function pausei(_opacidade = 1)
     else 
     {
     	image_alpha = _opacidade;
-        //exit;
     }
 }
 
@@ -89,8 +88,8 @@ function reset()
     global.mina = false;
     
     //VARIAVEIS
-    global.pontos_requeridos = 5;
-    global.pontos = 4;
+    global.pontos_requeridos = 10;
+    global.pontos = 0;
     global.moedas = 0;
     //dano do inimigo
     global.dano = 5;
@@ -104,6 +103,8 @@ function reset()
     global.nivel = 0;
     //habilidades selecionadas
     global.quant_habili = [];
+    //habilidades ativas
+    global.ativas = [];
 }
 
 //randomizando as habilidades escolhidas
@@ -130,6 +131,9 @@ function escolhe_habilidade()
         //mudando a posição da proxima carta que será gerada
         _xpos+=82;
     }
-    
 }
+
+//ativando as habilidades
+
+
 

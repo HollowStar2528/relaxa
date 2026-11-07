@@ -18,11 +18,11 @@ cor3 = c_white;
 //recarga
 segundos_reset = 90/global.recarga;
 segundos = segundos_reset;
+
 //habilidades
 //regeneração
-tempo_regen = 120;
+tempo_regen = 30;
 regen = 0.1;
-usei_regen = false;
 //clone
 usei_clone = false;
 tempo_clone = 120;
@@ -35,9 +35,22 @@ mini_player = 0;
 //tiro teleguiado
 tempo_teleguiado = 120;
 usei_teleguiado = false;
-//imã
-tempo_ima = 120;
-usei_ima = false;
+//invisibilidade
+tempo_invisivel = 120;
+usei_invi = false;
+//escudo
+tempo_escudo = 240;
+//portal
+tempo_portal = 240;
+posx = noone;
+posy = noone;
+usei_portal = false;
+//tiro de distração
+tempo_distrai = 160;
+//tiro paralisante
+tempo_paralisia = 180;
+//mina
+tempo_mina = 240;
 
 #endregion
 
@@ -50,19 +63,30 @@ pega_imput = function()
     down = keyboard_check(ord("S"));
     right = keyboard_check(ord("D"));
     left = keyboard_check(ord("A"));
+    
     //habilidades
-    //botão para ativar o regen
-    regen_botao = keyboard_check_pressed(vk_shift);
     //botão para invocar o clone
-    clone_botao = keyboard_check_pressed(vk_space);
+    clone_botao = keyboard_check_pressed(array_get(global.imput, 0));
     //botão para usar o circulo de energia
-    circu_botao = keyboard_check_pressed(vk_control);
-    //ima botão
-    ima_botao = keyboard_check_pressed(vk_alt);
+    circu_botao = keyboard_check_pressed(array_get(global.imput, 1));
+    //botão para usar a invisibilidade
+    invisivel_botao = keyboard_check_pressed(array_get(global.imput, 2));
+    //botão para usar o escudo
+    escudo_botao = keyboard_check_pressed(array_get(global.imput, 3));
+    //botão para usar o portal
+    portal_botao = keyboard_check_pressed(array_get(global.imput, 7));
+    //botão para atirar a distração
+    distrair_botao = keyboard_check_pressed(array_get(global.imput, 4));
+    //botão para atirar o paralizante
+    paralisa_botao = keyboard_check_pressed(array_get(global.imput, 6));
+    //botão para colocar mina no chão
+    mina_botao = keyboard_check_pressed(array_get(global.imput, 5));
 }
 //criando um metodo para controlar o jogador
 controla_player = function()
 {
+    //aplicando a velocide
+    vel = 4*global.velocidade;
     //aplicando isso aqui somente se eu estou apertando alguma tecla
 	if(right xor left or up xor down)
 	{
@@ -98,7 +122,7 @@ controla_player = function()
     //o ultimo número indica até que coordenada ele pode descer
     y = clamp(y, sprite_height/2, 736);
     
-    #region tiros
+    //tiros
     //recarga
     segundos_reset = 90/global.recarga;
     //atirando de tempos em tempos se tiver inimigos
@@ -169,12 +193,17 @@ desenha_vida = function()
 habilidade = function()
 {
     //usando a regeneração de vida se eu tiver ele
-    //tiver clicado no botão de uso
-    //não tiver usado ele
     //e o tempo de recarga tiver acabado
-    if (global.regen and regen_botao and usei_regen == false and tempo_regen == 120)
+    //e eu não estiver com a vida cheia
+    if (global.regen and vida < vida_max)
     {
-    	usei_regen = true;
+        if (tempo_regen == 30) {
+        	vida += regen;
+            tempo_regen = 0;
+        }
+        else if (tempo_regen < 30) {
+        	tempo_regen++;
+        }
     }
     
     //clone
@@ -203,32 +232,68 @@ habilidade = function()
     }
     
     //imã
-    if (usei_ima == false and tempo_ima == 120 and global.ima and ima_botao) {
-    	usei_ima = true;
+    if (global.ima) {
+        var _ima = collision_circle(x, y, 120*2*(1+global.tamanho_bala), obj_saco_moedas, false, true);
+        if (_ima)
+        {
+        	_ima.puxado = true;
+        }
     }
+    
+    //invisivilidade
+    //se eu liberei ela
+    //se eu apertei no botão
+    //e eu ainda não tenha usado a habilidade
+    if (global.invisivel and invisivel_botao and usei_invi == false and tempo_invisivel == 120) {
+        usei_invi = true;
+    }
+    
+    //escudo
+    if (global.escudo and escudo_botao and !instance_exists(obj_escudo) and tempo_escudo == 240) {
+    	instance_create_depth(x, y, depth+1, obj_escudo);
+    }
+    
+    //portal
+    if (global.portal and portal_botao) {
+    	if (usei_portal and tempo_portal == 240) {
+            x = posx;
+            y = posy;
+            tempo_portal--;
+            posx = noone;
+            posy = noone;
+            instance_destroy(obj_tp);
+            usei_portal = false;
+        }
+        else if (usei_portal == false and tempo_portal == 240) {
+        	posx = x;
+            posy = y;
+            instance_create_layer(posx, posy, layer, obj_tp);
+            usei_portal = true;
+        }
+    }
+    
+    //tiro distrai
+    if (global.distrair and distrair_botao and tempo_distrai == 160) {
+    	instance_create_layer(x, y, layer, obj_bala_distrai_player);
+        tempo_distrai--;
+    }
+    
+    //tiro paralisa
+    if (global.paralisante and paralisa_botao and tempo_paralisia == 180 and instance_exists(obj_inimigo)) {
+    	instance_create_layer(x, y, layer, obj_bala_paralisa_player);
+        tempo_paralisia--;
+    }
+    
+    //mina
+    if (global.mina and mina_botao and tempo_mina == 240) {
+    	instance_create_layer(x, y, layer, obj_mina);
+        tempo_mina--;
+    }
+    
 }
 //habilidades em uso ou em recarga
 habilidade_uso = function()
 {
-    //regeneração
-    if (usei_regen)
-    {
-    	tempo_regen--;
-        if (vida < vida_max) 
-        {
-        	vida+=regen;
-        }
-        if (tempo_regen <= 60) {
-            tempo_regen = 0;
-        	usei_regen = false;
-        }
-    }
-    //se o tempo de regen for menor que 120 e eu não tiver usado o regen então a recarga começa a voltar
-    if (tempo_regen != 120 and usei_regen == false)
-    {
-    	tempo_regen++;
-    }
-    
     //clone
     if (usei_clone) {
         if (!instance_exists(obj_clone_player) and tempo_clone == 120) {
@@ -256,7 +321,7 @@ habilidade_uso = function()
         }
     	if (tempo_circu <= -60)
         {
-        	tempo_circu = -240;
+        	tempo_circu = -240/global.recarga;
             usei_circu = false;
         }
     }
@@ -280,36 +345,80 @@ habilidade_uso = function()
     	tempo_teleguiado++;
     }
     
-    //imã
-    if (usei_ima) 
-    {
-        var _ima = collision_circle(x, y, 120*2*(1+global.tamanho_bala), obj_saco_moedas, false, false);
-        
-        tempo_ima--;
-        if (_ima)
-        {
-        	_ima.puxado = true;
-        }
-    	if (tempo_ima <= -120)
-        {
-        	tempo_ima = -240;
-            usei_ima = false;
+    //invisibilidade
+    if (usei_invi) {
+    	tempo_invisivel--;
+        if (tempo_invisivel <= -60) {
+            tempo_invisivel = -240/global.recarga;
+        	usei_invi = false;
         }
     }
     //resetando o tempo
-    if (tempo_ima != 120 and usei_ima == false) 
-    {
-    	tempo_ima++;
+    if (tempo_invisivel != 120 and usei_invi == false) {
+    	tempo_invisivel++;
+    }
+    
+    //escudo
+    if (instance_exists(obj_escudo)) {
+    	tempo_escudo--;
+        if (tempo_escudo <= 0) {
+        	tempo_escudo = -120/global.recarga;
+            instance_destroy(obj_escudo);
+        }
+    }
+    if (tempo_escudo != 240 and !instance_exists(obj_escudo)) {
+        tempo_escudo++;
+    }
+    
+    //portal
+    if (tempo_portal < 240 and tempo_portal > 0) {
+    	tempo_portal--;
+    }
+    else if (tempo_portal == 0) {
+    	tempo_portal = 240;
+    }
+    
+    //tiro distrai
+    if (tempo_distrai != 160) {
+    	tempo_distrai--;
+        if (tempo_distrai <= -160/global.recarga) {
+        	tempo_distrai = 160;
+        }
+    } 
+    
+    //tiro paralisa
+    if (tempo_paralisia != 180) {
+    	tempo_paralisia--;
+        if (tempo_paralisia <= -180/global.recarga) {
+        	tempo_paralisia = 180;
+        }
+    } 
+    
+    //mina
+    if (tempo_mina != 240) {
+    	tempo_mina--;
+        if (tempo_mina <= -240/global.recarga) {
+        	tempo_mina = 240;
+        }
     }
 }
 //desenha habilidades
 desenha_habilidade = function()
 {
+    //circulo
     if (usei_circu) {
     	draw_circle_colour(x, y, 192*(1+global.tamanho_bala), c_aqua, c_aqua, true);
     }
-    if (usei_ima) {
-    	draw_circle_colour(x, y, 120*2*(1+global.tamanho_bala), c_red, c_blue, true);
+    //imã
+    if (global.ima) {
+    	draw_circle_colour(x, y, 120*2*(1+global.tamanho_bala), c_white, c_green, true);
+    }
+    //invisibilidade
+    if (usei_invi) {
+    	image_alpha = 0.5;
+    }
+    else {
+    	image_alpha = 1;
     }
 }
 

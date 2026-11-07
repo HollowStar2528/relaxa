@@ -8,8 +8,8 @@
   "name":"obj_gas_cura",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"itens",
+    "path":"folders/Objects/itens.yy",
   },
   "parentObjectId":{
     "name":"obj_saco_moedas",

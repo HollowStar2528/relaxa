@@ -1,3 +1,3 @@
-if (global.pause) {
+if (global.loja) {
 	vendo();
 }

@@ -13,8 +13,8 @@
   "name":"obj_meteoro",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"inimigos",
+    "path":"folders/Objects/inimigos.yy",
   },
   "parentObjectId":{
     "name":"obj_inimigo",

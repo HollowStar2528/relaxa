@@ -3,7 +3,7 @@ image_yscale = image_xscale;
 image_blend = c_yellow;
 vel = 4;
 //recarga
-segundos_reset = 200/global.recarga;
+segundos_reset = 90/global.recarga;
 segundos = segundos_reset;
 colidindo = false;
 
@@ -54,7 +54,7 @@ controla_mini_player = function()
 atira_mini = function ()
 {
     //recarga
-    segundos_reset = 200/global.recarga;
+    segundos_reset = 90/global.recarga;
     //atirando de tempos em tempos se tiver inimigos
     if (gerou_inimigo()) {
         if (segundos > 0) 
@@ -63,7 +63,7 @@ atira_mini = function ()
         }
         else 
         {
-        	instance_create_depth(x, y, depth+1, obj_bala_player);
+        	instance_create_depth(x, y, depth+1, obj_mini_bala_player);
             segundos = segundos_reset;
         }
     }

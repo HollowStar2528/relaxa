@@ -11,8 +11,8 @@
   "name":"obj_bala_teleguiada_player",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"habilidades",
+    "path":"folders/Objects/player/habilidades.yy",
   },
   "parentObjectId":{
     "name":"obj_bala_player",

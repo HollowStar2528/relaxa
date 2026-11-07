@@ -61,10 +61,14 @@ roda_debug = function ()
     show_debug_overlay(1);
     
     //criando o meu bagui de debug dentro do view
-    view_player = dbg_view("View player", 1, 0, 19, 200, 200);
+    view_player = dbg_view("View player", 1, 0, 19, 400, 300);
     //vendo algumas informações
+    dbg_watch(ref_create(obj_player, "vida"), "Vida");
+    dbg_watch(ref_create(global, "moedas"), "Moedas");
     dbg_watch(ref_create(global, "nivel"), "nivel");
+    dbg_watch(ref_create(global, "pontos"), "Pontuação");
     dbg_watch(ref_create(global, "quant_habili"), "habilidades selecionadas");
+    dbg_watch(ref_create(global, "ativas"), "habilidades ativas");
     
     //vendo se as habilidades estão ativadas ou não
     dbg_watch(ref_create(global, "regen"), "regen");

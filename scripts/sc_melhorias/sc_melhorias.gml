@@ -10,6 +10,8 @@ global.fortuna = 1;
 global.vel_bala = 1;
 //tamanho da bala
 global.tamanho_bala = 0;
+//velocidade
+global.velocidade = 1;
 
 //habilidades
 //regeneração

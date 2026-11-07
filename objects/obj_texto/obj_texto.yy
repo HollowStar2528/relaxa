@@ -9,8 +9,8 @@
   "name":"obj_texto",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"textos",
+    "path":"folders/Objects/textos.yy",
   },
   "parentObjectId":null,
   "persistent":false,

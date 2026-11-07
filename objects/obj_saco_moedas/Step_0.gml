@@ -2,7 +2,7 @@ if (global.pause) {
 	exit;
 }
 if (puxado) {
-	speed = 2;
+	speed = 4.5;
     direcao(obj_player);
 }
 else {

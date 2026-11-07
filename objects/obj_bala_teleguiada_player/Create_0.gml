@@ -5,7 +5,7 @@ mili_segundos = 0;
 segundos = 3;
 coisas = function ()
 {
-    speed = 2*global.vel_bala;
+    speed = 4*global.vel_bala;
     if (durabilidade<=0) {
     	instance_destroy();
     }
@@ -49,7 +49,7 @@ colide = function()
         durabilidade--;
     	if (_ini.vida_ini > 0) 
         {
-        	_ini.vida_ini -= 3;
+        	_ini.vida_ini -= 3*global.penetracao;
         }
     }
 }

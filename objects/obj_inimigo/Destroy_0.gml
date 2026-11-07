@@ -1,4 +1,6 @@
-if (place_meeting(x,y, obj_bala_player)) {
+// or obj_mina or obj_mini_bala_player or obj_bala_teleguiada_player
+var _colide = [obj_bala_player, obj_mina, obj_mini_bala_player, obj_bala_teleguiada_player]
+if (place_meeting(x, y, _colide)) {
 	global.pontos += def_pontos*global.fortuna;
 }
 if (dar_moedas) {

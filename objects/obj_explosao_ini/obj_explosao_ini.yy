@@ -6,8 +6,8 @@
   "name":"obj_explosao_ini",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"inimigos",
+    "path":"folders/Objects/inimigos.yy",
   },
   "parentObjectId":{
     "name":"obj_exposao_bala",

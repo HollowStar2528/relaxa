@@ -12,8 +12,8 @@
   "name":"obj_clone_player",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"habilidades",
+    "path":"folders/Objects/player/habilidades.yy",
   },
   "parentObjectId":null,
   "persistent":false,

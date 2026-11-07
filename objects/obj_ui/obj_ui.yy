@@ -8,8 +8,8 @@
   "name":"obj_ui",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"configs",
+    "path":"folders/Objects/configs.yy",
   },
   "parentObjectId":null,
   "persistent":false,
