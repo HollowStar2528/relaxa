@@ -91,8 +91,6 @@ function reset()
     global.pontos_requeridos = 10;
     global.pontos = 0;
     global.moedas = 0;
-    //dano do inimigo
-    global.dano = 5;
     //mira do inimigo
     global.mira_ini = obj_player
     //pausado
@@ -105,6 +103,18 @@ function reset()
     global.quant_habili = [];
     //habilidades ativas
     global.ativas = [];
+    
+    //EFEITOS
+    //superaquecimento(queimando)
+    global.superaquecimento = false;
+    //congelado
+    global.congelado = false;
+    //desnorteado
+    global.desnorteado = false;
+    //cegueira
+    global.cegado = false;
+    //lentidão
+    global.lento = false;
 }
 
 //randomizando as habilidades escolhidas

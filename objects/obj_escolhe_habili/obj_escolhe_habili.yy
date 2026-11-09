@@ -11,8 +11,8 @@
   "name":"obj_escolhe_habili",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"botões",
+    "path":"folders/Objects/botões.yy",
   },
   "parentObjectId":null,
   "persistent":false,

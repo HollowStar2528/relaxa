@@ -7,8 +7,6 @@ global.escolhendo = false;
 global.quant_habili = [];
 global.imput = [ord("Q"), ord("E"), ord("R"), ord("F"), ord("C"), vk_shift, vk_control, vk_space];
 global.ativas = [];
-//dano do inimigo
-global.dano = 5;
 //mira do inimigo
 global.mira_ini = obj_player
 //pausado
@@ -19,4 +17,15 @@ global.xcolidi = false;
 global.loja = false;
 //debug
 global.debug = false;
-
+//definido a dificuldade do jogo
+global.dificuldade = 1;
+//superaquecimento(queimando)
+global.superaquecimento = false;
+//congelado
+global.congelado = false;
+//desnorteado
+global.desnorteado = false;
+//cegueira
+global.cegado = false;
+//lentidão
+global.lento = false;

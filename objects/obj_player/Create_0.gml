@@ -52,6 +52,23 @@ tempo_paralisia = 180;
 //mina
 tempo_mina = 240;
 
+//tempo dos efeitos
+//Superaquecimento
+//tempo que o fogo dura
+tempo_fogo = 60*5;
+//turnos de fogo
+dps_fogo = 60;
+//congelado
+tempo_gelo = 60*5;
+//desnorteado
+tempo_desnorteado = 60*3;
+//cegado
+tempo_cego = 60*3;
+//lento
+tempo_lento = 60*5
+//pego no radar inimigo
+radar = false;
+
 #endregion
 
 #region Metodos
@@ -59,10 +76,20 @@ tempo_mina = 240;
 //criando metodo para pegar os imputs do jogador
 pega_imput = function()
 {
-    up = keyboard_check(ord("W"));
-    down = keyboard_check(ord("S"));
-    right = keyboard_check(ord("D"));
-    left = keyboard_check(ord("A"));
+    //se eu não estiver desnorteado então eu ando normalmente
+    if (global.desnorteado == false) {
+        up = keyboard_check(ord("W"));
+        down = keyboard_check(ord("S"));
+        right = keyboard_check(ord("D"));
+        left = keyboard_check(ord("A"));
+    }
+    //se eu estiver desnorteado então os botões são invertidos
+    else {
+        up = keyboard_check(ord("S"));
+        down = keyboard_check(ord("W"));
+        right = keyboard_check(ord("A"));
+        left = keyboard_check(ord("D"));
+    }
     
     //habilidades
     //botão para invocar o clone
@@ -85,8 +112,15 @@ pega_imput = function()
 //criando um metodo para controlar o jogador
 controla_player = function()
 {
-    //aplicando a velocide
-    vel = 4*global.velocidade;
+    //se eu não estiver com lentidão então minha velocidade está normal
+    if (global.lento = false) { 
+        //aplicando a velocide
+        vel = 4*global.velocidade;
+    }
+    //se eu estiver com lentidão então minha velocidade cai pela metade
+    else {
+    	vel = (4*global.velocidade)/2;
+    }
     //aplicando isso aqui somente se eu estou apertando alguma tecla
 	if(right xor left or up xor down)
 	{
@@ -142,7 +176,8 @@ controla_player = function()
 gerou_inimigo = function()
 {
     var _gerou = instance_exists(obj_inimigo);
-    if (_gerou) {
+    var _gerou_parrudo = instance_exists(obj_inimigo_parrudo);
+    if (_gerou or _gerou_parrudo) {
     	return true;
     }
 }
@@ -311,7 +346,9 @@ habilidade_uso = function()
     //circulo de energia
     if (usei_circu) 
     {
-        var _ini = collision_circle(x, y, 192*(1+global.tamanho_bala), obj_inimigo, false, false);
+        var _ini, _chamas; 
+        _ini = collision_circle(x, y, 192*(1+global.tamanho_bala), obj_inimigo, false, true);
+        _chamas = collision_circle(x, y, 192*(1+global.tamanho_bala), obj_chamas, false, true);
         
         tempo_circu--;
         if (_ini)
@@ -323,6 +360,10 @@ habilidade_uso = function()
         {
         	tempo_circu = -240/global.recarga;
             usei_circu = false;
+        }
+        //se eu colidi as chamas eu apago elas
+        if (_chamas) {
+        	instance_destroy(obj_chamas);
         }
     }
     //resetando o tempo
@@ -421,7 +462,87 @@ desenha_habilidade = function()
     	image_alpha = 1;
     }
 }
-
+//pegando efeitos
+efeitos = function()
+{
+    //efeito de superaquecimento
+    if (global.superaquecimento) {
+    	//eu subtraio o tempo de fogo
+        tempo_fogo--;
+        //se ele acabar o efeito termina
+        if (tempo_fogo <= 0) {
+        	global.superaquecimento = false;
+        }
+        //enquanto estiver pegando fogo, ele tomarar dano por segundo
+        dps_fogo--;
+        if (dps_fogo <= 0) {
+            //causo dano no jogador
+            vida-=5;
+        	//reseto o dps
+            dps_fogo = 60;
+        }
+    }
+    //se ele estiver desativado então o tempo está desligado
+    else {
+    	tempo_fogo = 60*5;
+        dps_fogo = 60;
+    }
+    
+    //efeito de congelado
+    if (global.congelado) {
+    	//diminuo o tempo
+        tempo_gelo--;
+        //se o tempo acabar então o cogelamento terminou
+        if (tempo_gelo <= 0) {
+        	global.congelado = false;
+        }
+    }
+    //se for falso então o tempo é resetado
+    else {
+    	tempo_gelo= 60*5;
+    }
+    
+    //efeito de desnorteado
+    if (global.desnorteado) {
+    	//diminuo o tempo do desnorteamento
+        tempo_desnorteado--;
+        //se o tempo acabar então o efeito acabou
+        if (tempo_desnorteado <= 0) {
+        	global.desnorteado = false;
+        }
+    }
+    //se for falso então o tempo reseta
+    else {
+    	tempo_desnorteado = 60*3;
+    }
+    
+    //Efeito de cegueira
+    if (global.cegado) {
+    	//diminuo o tempo da cegueira
+        tempo_cego--;
+        //se o tempo acabar então o efeito chegou ao fim
+        if (tempo_cego <= 0) {
+        	global.cegado = false;
+        }
+    }
+    //se eu não estiver cego então o tempo não roda
+    else {
+    	tempo_cego = 60*3;
+    }
+    
+    //Efeito de lentidão
+    if (global.lento) {
+    	tempo_lento--;
+        //se o tempo acabar então o efeito acabou
+        if (tempo_lento <= 0) {
+        	global.lento = false;
+        }
+    }
+    //se eu não estou com lentidão então o tempo do efeito é resetado
+    else {
+    	tempo_lento = 60*5;
+    }
+}
 
 #endregion
 

@@ -1,6 +1,11 @@
 image_xscale = 1+global.tamanho_bala;
 image_yscale = image_xscale;
-direcao(obj_inimigo);
+if (instance_exists(obj_inimigo)) {
+	direcao(obj_inimigo);
+}
+if (instance_exists(obj_inimigo_parrudo)) {
+	direcao(obj_inimigo_parrudo);
+}
 image_angle = direction;
 durabilidade = 1*global.penetracao;
 sai = function()
@@ -23,12 +28,19 @@ sai = function()
 
 colide = function()
 {
-    var _ini //_ini = place_meeting(x, y, obj_inimigo);
-    _ini = instance_place(x, y, obj_inimigo)
+    var _ini, _ini_parrudo;
+    _ini_parrudo = instance_place(x, y, obj_inimigo_parrudo);
+    _ini = instance_place(x, y, obj_inimigo);
     if (_ini) {
         durabilidade--;
     	if (_ini.vida_ini > 0) {
         	_ini.vida_ini--;
+        }
+    }
+    if (_ini_parrudo) {
+        durabilidade--;
+    	if (_ini_parrudo.vida_ini > 0) {
+        	_ini_parrudo.vida_ini--;
         }
     }
 }

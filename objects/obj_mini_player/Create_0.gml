@@ -28,6 +28,8 @@ gerou_inimigo = function()
 //criando um metodo para controlar o jogador
 controla_mini_player = function()
 {
+    //aplicando velocidade
+    vel = 4*global.velocidade;
     //aplicando isso aqui somente se eu estou apertando alguma tecla
 	if(right xor left or up xor down)
 	{
