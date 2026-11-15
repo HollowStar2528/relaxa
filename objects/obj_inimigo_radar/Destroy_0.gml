@@ -1,3 +1,5 @@
+//quando eu for destruido o numero de inimigos em tela diminui
+obj_gerador.quant_atual--;
 //se o inimigo morrer por ter colidido com o jogador então ele não da pontos
 var _colide = obj_player;
 if (!place_meeting(x, y, _colide)) {

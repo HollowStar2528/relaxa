@@ -27,7 +27,7 @@ global.tiro_teleguiado = false;
 //imã
 global.ima = false;
 //invisibilidade
-global.invisivel = true;
+global.invisivel = false;
 //escudo
 global.escudo = false;
 //portal

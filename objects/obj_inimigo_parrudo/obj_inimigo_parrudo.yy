@@ -32,7 +32,7 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v2","%Name":"def_vida_ini","filters":[],"listItems":[],"multiselect":false,"name":"def_vida_ini","rangeEnabled":true,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"2","varType":1,},
+    {"$GMObjectProperty":"v2","%Name":"def_vida_ini","filters":[],"listItems":[],"multiselect":false,"name":"def_vida_ini","rangeEnabled":true,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"4","varType":1,},
     {"$GMObjectProperty":"v2","%Name":"def_dano_ini","filters":[],"listItems":[],"multiselect":false,"name":"def_dano_ini","rangeEnabled":true,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"3","varType":1,},
     {"$GMObjectProperty":"v2","%Name":"def_vel_ini","filters":[],"listItems":[],"multiselect":false,"name":"def_vel_ini","rangeEnabled":true,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1.5","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"def_pontos","filters":[],"listItems":[],"multiselect":false,"name":"def_pontos","rangeEnabled":true,"rangeMax":10.0,"rangeMin":1.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"2","varType":1,},

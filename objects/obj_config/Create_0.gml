@@ -5,7 +5,7 @@ config_xp = function()
         //subitraindo os meus pontos pelos pontos requeridos
         global.pontos -= global.pontos_requeridos;
         //aumentando a quantidade de pontos requeridos para subir de nivel
-    	//global.pontos_requeridos += global.pontos_requeridos;
+    	global.pontos_requeridos += global.pontos_requeridos;
         //subindo de nivel
         global.nivel += 1; 
         //ativando escolhas de habilidades ao subir de nivel

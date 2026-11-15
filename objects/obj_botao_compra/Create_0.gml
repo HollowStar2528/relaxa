@@ -51,11 +51,17 @@ vendo = function()
             global.defesa++;
             preco *= 2;
         }
+        else if (def_vendo == "defesa" and global.defesa == 2) {
+        	instance_destroy();
+        }
         if (def_vendo == "fortuna")
         {
             global.moedas -= preco;
             global.fortuna++;
             preco *= 5;
+        }
+        else if (def_vendo == "fortuna" and global.fortuna == 3) {
+        	instance_destroy();
         }
         if (def_vendo == "velocidade da bala" and global.vel_bala < 2.5)
         {
@@ -66,12 +72,12 @@ vendo = function()
         else if (def_vendo == "velocidade da bala" and global.vel_bala == 2.5) {
         	instance_destroy();
         }
-        if (def_vendo == "tamanho da bala" and global.tamanho_bala < 3) {
+        if (def_vendo == "tamanho da bala" and global.tamanho_bala < 2.6) {
         	global.moedas -= preco;
             global.tamanho_bala += .2;
             preco*= 2;
         }
-        else if (def_vendo == "tamanho da bala" and global.tamanho_bala == 3) {
+        else if (def_vendo == "tamanho da bala" and global.tamanho_bala == 2.6) {
         	instance_destroy();
         }
         if (def_vendo == "velocidade" and global.velocidade < 3) {

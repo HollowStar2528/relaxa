@@ -1,6 +1,6 @@
 //Melhorias/Habilidades
 global.pontos_requeridos = 10;
-global.pontos = 4;
+global.pontos = 0;
 global.moedas = 0;
 global.nivel = 0;
 global.escolhendo = false;

@@ -9,8 +9,8 @@ vel = 4;
 vida_max = 100;
 vida = vida_max;
 feedback_vida = vida_max;
-barra_vidaw = 120;
-barra_vidah = 20;
+barra_vidaw = 200;
+barra_vidah = 40;
 //cor da barra de vida
 cor1 = make_colour_rgb(255, 0, 0);//cor principal
 cor2 = make_colour_rgb(128,128,128);
@@ -194,11 +194,13 @@ desenha_vida = function()
 {
 //desenhando a minha quantidade de vida atráves de uma barra de vida
     var  _amount, _amount_fixo, _amount_feedback, x1, y1, x2, y2, x3, x4; 
-    _amount = (vida/vida_max)*barra_vidaw; //formula da barra de vida
-    _amount_fixo = (vida_max/vida_max)*barra_vidaw; //formula da barra de vida fixa
-    _amount_feedback = (feedback_vida/vida_max)*barra_vidaw
-    x1 = (x) - (barra_vidaw/2);
-    y1 = (y-50)  - (barra_vidah/2);
+    //formula da barra de vida
+    _amount = (vida/vida_max)*barra_vidaw; 
+    //formula da barra de vida fixa
+    _amount_fixo = (vida_max/vida_max)*barra_vidaw; 
+    _amount_feedback = (feedback_vida/vida_max)*barra_vidaw;
+    x1 = 1;
+    y1 = 0;
     x2 = x1+_amount;
     y2 = y1+ barra_vidah;
     x3 = x1+_amount_fixo;
@@ -207,11 +209,11 @@ desenha_vida = function()
     {
         //desenhando o background
         draw_set_colour(cor2);
-        draw_rectangle(x1,y1,x2,y2,0)
+        draw_rectangle(x1,y1,x3,y2,1);
         draw_set_colour(-1);
         //desenhando o feedback
         draw_set_colour(cor3);
-        draw_rectangle(x1,y1,x4,y2,0)
+        draw_rectangle(x1,y1,x4,y2,0);
         draw_set_colour(-1);
         //desenhando a minha barra de vida
         draw_set_colour(cor1);

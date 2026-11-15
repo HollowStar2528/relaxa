@@ -10,6 +10,7 @@
   "overriddenProperties":[
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_inimigo","path":"objects/obj_inimigo/obj_inimigo.yy",},"propertyId":{"name":"def_cor","path":"objects/obj_inimigo/obj_inimigo.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"c_orange",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_inimigo","path":"objects/obj_inimigo/obj_inimigo.yy",},"propertyId":{"name":"def_vel_ini","path":"objects/obj_inimigo/obj_inimigo.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"1.5",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_inimigo","path":"objects/obj_inimigo/obj_inimigo.yy",},"propertyId":{"name":"def_vida_ini","path":"objects/obj_inimigo/obj_inimigo.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"4",},
   ],
   "parent":{
     "name":"inimigos",
