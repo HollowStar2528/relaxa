@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_miniun",
-    "path":"sprites/spr_miniun/spr_miniun.yy",
+    "name":"spr_jogador",
+    "path":"sprites/spr_jogador/spr_jogador.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -33,9 +33,12 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
+    "name":"spr_bala_distrai",
+    "path":"sprites/spr_bala_distrai/spr_bala_distrai.yy",
+  },
+  "spriteMaskId":{
     "name":"spr_bala",
     "path":"sprites/spr_bala/spr_bala.yy",
   },
-  "spriteMaskId":null,
   "visible":true,
 }

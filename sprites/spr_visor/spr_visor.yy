@@ -21,8 +21,8 @@
     {"$GMSpriteFrame":"v1","%Name":"79a349f3-2736-48df-8fd6-684601acd2a5","name":"79a349f3-2736-48df-8fd6-684601acd2a5","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"e8b24d2f-70b4-4a8b-a617-76cd556adc28","name":"e8b24d2f-70b4-4a8b-a617-76cd556adc28","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
-  "gridX":0,
-  "gridY":0,
+  "gridX":2,
+  "gridY":2,
   "height":64,
   "HTile":false,
   "layers":[
@@ -32,8 +32,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"hud",
+    "path":"folders/Sprites/hud.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

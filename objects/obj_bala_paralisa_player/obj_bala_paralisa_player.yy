@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_bala",
-    "path":"sprites/spr_bala/spr_bala.yy",
+    "name":"spr_bala_teia",
+    "path":"sprites/spr_bala_teia/spr_bala_teia.yy",
   },
   "spriteMaskId":null,
   "visible":true,

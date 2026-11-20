@@ -115,6 +115,9 @@ function reset()
     global.cegado = false;
     //lentidão
     global.lento = false;
+    
+    //PARANDO COISAS
+    audio_stop_all();
 }
 
 //randomizando as habilidades escolhidas
@@ -143,7 +146,35 @@ function escolhe_habilidade()
     }
 }
 
-//ativando as habilidades
+//Tocador de sons do jogo
+function som(_som = snd_morreu)
+{
+    if (global.som) {
+        //toco o som
+        audio_play_sound(_som, 1, 0);
+    }
+}
 
-
+//função para fazer a tela tremer
+function tremendo_tela(_valor = 0)
+{
+	if(instance_exists(obj_screenshake))
+	{
+		//checando se o valor de treme atual é maior que o valor de treme do objeto
+		//screenshake
+		//acessando o objeto screenshake
+		with(obj_screenshake)
+		{
+			//meu código vai rodar dentro do objeto screenshake
+			//se o meu treme novo for maior que o treme atual
+			if(_valor > treme)
+			{
+				//ai eu substituo o meu atual
+				treme = _valor
+			}
+		}
+		//passando para ele o valor de treme
+		obj_screenshake.treme = _valor;
+	}
+}
 

@@ -4,4 +4,3 @@ draw_self();
 if (global.cegado == false) {
 	olhando();
 }
-tomei_dano();

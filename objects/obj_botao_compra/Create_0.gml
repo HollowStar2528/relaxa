@@ -27,6 +27,7 @@ vendo = function()
 {
     if (preco <= global.moedas)
     {
+        som(snd_escolhi);
         if (def_vendo == "recarga" and global.recarga < 2.5) 
         {
             global.moedas -= preco;

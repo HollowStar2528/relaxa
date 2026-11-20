@@ -1,3 +1,5 @@
+//audio_play_sound(snd_tiro, 0, false);
+som(snd_tiro);
 image_xscale = 1+global.tamanho_bala;
 image_yscale = image_xscale;
 if (instance_exists(obj_inimigo)) {

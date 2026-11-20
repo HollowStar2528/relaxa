@@ -74,23 +74,22 @@ radar = false;
 #endregion
 
 #region Metodos
-
 //criando metodo para pegar os imputs do jogador
 pega_imput = function()
 {
     //se eu não estiver desnorteado então eu ando normalmente
     if (global.desnorteado == false) {
-        up = keyboard_check(ord("W"));
-        down = keyboard_check(ord("S"));
-        right = keyboard_check(ord("D"));
-        left = keyboard_check(ord("A"));
+        up = keyboard_check(ord("W")) or keyboard_check(vk_up);
+        down = keyboard_check(ord("S")) or keyboard_check(vk_down);
+        right = keyboard_check(ord("D")) or keyboard_check(vk_right);
+        left = keyboard_check(ord("A")) or keyboard_check(vk_left);
     }
     //se eu estiver desnorteado então os botões são invertidos
     else {
-        up = keyboard_check(ord("S"));
-        down = keyboard_check(ord("W"));
-        right = keyboard_check(ord("A"));
-        left = keyboard_check(ord("D"));
+        up = keyboard_check(ord("S")) or keyboard_check(vk_down);
+        down = keyboard_check(ord("W")) or keyboard_check(vk_up);
+        right = keyboard_check(ord("A")) or keyboard_check(vk_left);
+        left = keyboard_check(ord("D")) or keyboard_check(vk_right);
     }
     
     //habilidades
@@ -255,11 +254,13 @@ habilidade = function()
     
     //mini player
     if (global.mini_player and mini_player == 0) {
-    	instance_create_layer(x+70, y-10, layer, obj_mini_player);
+    	var _minion1 = instance_create_layer(x+70, y-10, layer, obj_mini_player);
+        _minion1.lado = 1;
         mini_player++;
     }
     else if (global.mini_player and mini_player == 1) {
-    	instance_create_layer(x-70, y-10, layer, obj_mini_player);
+    	var _minion2 = instance_create_layer(x-70, y-10, layer, obj_mini_player);
+        _minion2.lado = 2;
         mini_player++;
     }
     
@@ -562,6 +563,10 @@ olhando = function()
 tomei_dano = function()
 {
     if (recebi_dano) {
+        if (tempo_indica_dano == 30) {
+        	som(snd_dano);
+            tremendo_tela(20);
+        }
         tempo_indica_dano--;
         sprite_index = spr_jogador_dano;
         if (tempo_indica_dano <= 0) {

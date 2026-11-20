@@ -12,6 +12,6 @@ if (radar == false) {
 } 
 habilidade_uso();
 efeitos();
-
+tomei_dano();
 //tomei dano então tenho um feedback da vida descendo
 feedback_vida = sc_feedback_vida(feedback_vida, vida,1);

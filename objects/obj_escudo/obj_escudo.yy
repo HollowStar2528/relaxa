@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_bloco",
-    "path":"sprites/spr_bloco/spr_bloco.yy",
+    "name":"spr_escudo",
+    "path":"sprites/spr_escudo/spr_escudo.yy",
   },
   "spriteMaskId":null,
   "visible":true,
