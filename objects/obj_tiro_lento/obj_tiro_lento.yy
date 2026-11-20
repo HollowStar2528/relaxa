@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_bala",
-    "path":"sprites/spr_bala/spr_bala.yy",
+    "name":"spr_tiro_ini_lento",
+    "path":"sprites/spr_tiro_ini_lento/spr_tiro_ini_lento.yy",
   },
   "spriteMaskId":null,
   "visible":true,

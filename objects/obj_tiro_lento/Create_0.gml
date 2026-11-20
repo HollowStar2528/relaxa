@@ -22,6 +22,7 @@ controla_bala = function()
             //causando dano no jogador se o meu dano for maior que zero
             if (_dano > 0) {
             	obj_player.vida-=_dano;
+                obj_player.recebi_dano = true;
             }
             //dando efeito de lentidão
             global.lento = true;
@@ -36,5 +37,17 @@ controla_bala = function()
     //se eu sair da tela então eu me destruo
     if (x<-64 or x > 14080 or y <-64 or y > 800) {
     	instance_destroy();
+    }
+}
+//olhando para a direção correta
+olhando = function()
+{
+    //Olhando para o inimigo mais proximo se ele existir
+    if (instance_exists(global.mira_ini)) {
+        var _y, _x, _olha;
+        _x = instance_nearest(x,y, global.mira_ini).x;
+        _y = instance_nearest(x, y, global.mira_ini).y;
+        _olha = lerp(image_angle, point_direction(x, y, _x, _y), 0.05);
+        image_angle = _olha;
     }
 }

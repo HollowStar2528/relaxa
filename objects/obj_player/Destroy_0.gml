@@ -1,0 +1,1 @@
+obj_explosao_player.image_angle = image_angle;

@@ -2,7 +2,5 @@
 if (global.cegado == false) {
 	draw_self();
 }
-//a cor dele se define através da variavel de controle de cor
-image_blend = def_cor;
-
-
+//olhando para a direção correta
+olhando();

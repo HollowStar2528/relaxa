@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_gas_cura",
-    "path":"sprites/spr_gas_cura/spr_gas_cura.yy",
+    "name":"spr_cura",
+    "path":"sprites/spr_cura/spr_cura.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -2,5 +2,5 @@
 if (global.cegado == false) {
 	draw_self();
 }
-//mudando a minha cor
-image_blend = c_red;
+//olhando para a direção correta
+olhando();

@@ -11,6 +11,8 @@ vida = vida_max;
 feedback_vida = vida_max;
 barra_vidaw = 200;
 barra_vidah = 40;
+recebi_dano = false;
+tempo_indica_dano = 30;
 //cor da barra de vida
 cor1 = make_colour_rgb(255, 0, 0);//cor principal
 cor2 = make_colour_rgb(128,128,128);
@@ -221,8 +223,6 @@ desenha_vida = function()
         draw_set_colour(-1);
     }
     else {
-        instance_destroy();
-        reset();
     	instance_create_layer(x, y, "Instances", obj_explosao_player);
     }
 }
@@ -543,6 +543,32 @@ efeitos = function()
     //se eu não estou com lentidão então o tempo do efeito é resetado
     else {
     	tempo_lento = 60*5;
+    }
+}
+//olhando para a direção correta
+olhando = function()
+{
+    //Olhando para o inimigo mais proximo se ele existir
+    if (instance_exists(obj_inimigo)) {
+        var _y, _x, _olha;
+        _x = instance_nearest(x,y, obj_inimigo).x;
+        _y = instance_nearest(x, y, obj_inimigo).y;
+        _olha = lerp(image_angle, point_direction(x, y, _x, _y), 0.05);
+        image_angle = _olha;
+        direction = image_angle;
+    }
+}
+//dizendo que eu tomei dano
+tomei_dano = function()
+{
+    if (recebi_dano) {
+        tempo_indica_dano--;
+        sprite_index = spr_jogador_dano;
+        if (tempo_indica_dano <= 0) {
+            tempo_indica_dano = 30;
+            sprite_index = spr_jogador;
+            recebi_dano = false;
+        }
     }
 }
 

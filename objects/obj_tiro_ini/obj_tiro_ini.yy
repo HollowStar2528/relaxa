@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_bala",
-    "path":"sprites/spr_bala/spr_bala.yy",
+    "name":"spr_tiro_ini",
+    "path":"sprites/spr_tiro_ini/spr_tiro_ini.yy",
   },
   "spriteMaskId":null,
   "visible":true,

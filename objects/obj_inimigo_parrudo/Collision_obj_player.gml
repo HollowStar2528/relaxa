@@ -3,4 +3,5 @@ instance_destroy();
 //e causo dano nele se o dano for maior que zero
 if (dano > 0) {
 	obj_player.vida -= dano;
+    obj_player.recebi_dano = true;
 }

@@ -1,1 +1,1 @@
-draw_text(x, y, vida_ini);
+//draw_text(x, y, vida_ini);

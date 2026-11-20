@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_bala",
-    "path":"sprites/spr_bala/spr_bala.yy",
+    "name":"spr_tiro_ini_fogo",
+    "path":"sprites/spr_tiro_ini_fogo/spr_tiro_ini_fogo.yy",
   },
   "spriteMaskId":null,
   "visible":true,
