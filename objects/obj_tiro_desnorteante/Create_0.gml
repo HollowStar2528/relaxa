@@ -19,6 +19,7 @@ controla_bala = function()
         if (!_escudo) {
             //desnorteando o jogador
             global.desnorteado = true;
+            obj_player.recebi_dano = true;
         	//me destruindo
             instance_destroy();
         }

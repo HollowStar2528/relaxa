@@ -50,7 +50,28 @@ cronometro = function()
     draw_text(x, y, string(horas) + " : " + string(minutos) + " : " + string(segundos))
 }
 
-
+//escrevendo alguns efeitos na tela
+efeitos = function()
+{
+    //efeito de congelamento
+    if (global.congelado) {
+    	draw_set_font(fnt_avisos);
+        draw_text_colour(220, y-30, "Controles\ntravados", c_aqua, c_teal, c_white, c_blue, 1);
+        draw_set_font(-1);
+    }
+    //efeito de desorientado
+    if (global.desnorteado) {
+    	draw_set_font(fnt_avisos);
+        draw_text_colour(330, y-30, "Pane no\nsistema", c_ltgrey, c_green, c_white, c_olive, 1);
+        draw_set_font(-1);
+    }
+    //efeito de lentidão
+    if (global.lento) {
+    	draw_set_font(fnt_avisos);
+        draw_text_colour(430, y-30, "Sistema\nfalhando", c_maroon, c_grey, c_white, c_silver, 1);
+        draw_set_font(-1);
+    }
+}
 
 #region debug
 view_player = noone;

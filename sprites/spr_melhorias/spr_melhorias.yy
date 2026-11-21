@@ -25,7 +25,9 @@
   "height":64,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"9672cf2f-63b6-409a-b175-08a0a46821c0","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"9672cf2f-63b6-409a-b175-08a0a46821c0","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"86153340-29d8-49e7-81f4-14bb3f28b1e5","blendMode":0,"displayName":"default","isLocked":false,"name":"86153340-29d8-49e7-81f4-14bb3f28b1e5","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"308779d8-0cf9-4d73-8061-8409ff52c3dd","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"308779d8-0cf9-4d73-8061-8409ff52c3dd","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_melhorias",
   "nineSlice":null,

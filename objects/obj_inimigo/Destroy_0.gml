@@ -1,3 +1,4 @@
+som(snd_morte_ini);
 //quando eu for destruido o numero de inimigos em tela diminui
 obj_gerador.quant_atual--;
 //se o inimigo morrer por ter colidido com o jogador então ele não da pontos

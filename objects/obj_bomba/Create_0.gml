@@ -1,3 +1,4 @@
+som(snd_explosao);
 //definindo a aréa de explosão
 area = 0;
 //definindo se eu causei dano
@@ -17,6 +18,7 @@ controla_bomba = function()
             //causando o dano se o meu dano for maior que 0
             if (_dano > 0) { 
                 obj_player.vida -= _dano;
+                obj_player.recebi_dano = true;
             }
             //causei dano
         	causei = true;

@@ -9,7 +9,7 @@ controla_player();
 camera_display();
 if (radar == false) {
 	habilidade();
-} 
+}
 habilidade_uso();
 efeitos();
 tomei_dano();

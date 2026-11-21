@@ -1,3 +1,4 @@
+som(snd_explosao);
 //definindo a aréa de explosão
 area = 3.2;
 //definindo se eu causei dano

@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_bloco",
-    "path":"sprites/spr_bloco/spr_bloco.yy",
+    "name":"spr_fundo_loja",
+    "path":"sprites/spr_fundo_loja/spr_fundo_loja.yy",
   },
   "spriteMaskId":null,
   "visible":true,

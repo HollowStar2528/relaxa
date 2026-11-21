@@ -131,7 +131,7 @@ function escolhe_habilidade()
     repeat (3) {
         _valor = irandom(11);
         //criando a carta de habilidade e salvando o id dela
-    	_id = instance_create_layer(590+_xpos, 384, layer, obj_escolhe_habili);
+    	_id = instance_create_layer(570+_xpos, 384, layer, obj_escolhe_habili);
         //se o valor da carta seja novo, ele for diferente de nenhum e não tiver sido escolhido antes então ele aparece
         if (!array_contains(_check, _valor) and _valor != -4 and !array_contains(global.quant_habili, _valor)) {
         	_id.valor = _valor;
@@ -142,7 +142,7 @@ function escolhe_habilidade()
         	instance_destroy(_id);
         }
         //mudando a posição da proxima carta que será gerada
-        _xpos+=82;
+        _xpos+=102;
     }
 }
 
@@ -178,3 +178,17 @@ function tremendo_tela(_valor = 0)
 	}
 }
 
+//efeito para o jogador ficar pegando fogo
+function desenhando_efeito_queimado(_funcao_desenho = draw_self)
+{
+	if(global.superaquecimento)
+	{
+		image_blend = c_orange;
+		_funcao_desenho();
+		image_blend = c_white;
+	}
+	else
+	{
+		_funcao_desenho();
+	}
+}

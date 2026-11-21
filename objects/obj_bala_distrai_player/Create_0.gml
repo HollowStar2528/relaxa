@@ -1,6 +1,8 @@
 image_xscale = 1+global.tamanho_bala;
 image_yscale = image_xscale;
-direction = irandom(359);
+if (instance_exists(obj_inimigo)) {
+	direcao(obj_inimigo);
+}
 image_angle = direction;
 global.mira_ini = obj_bala_distrai_player;
 sai = function()

@@ -1,1 +1,1 @@
-room_goto(rm_inicio);
+room_goto(rm_tela_inicial);

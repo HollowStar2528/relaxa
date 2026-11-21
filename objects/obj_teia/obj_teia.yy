@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_circulo",
-    "path":"sprites/spr_circulo/spr_circulo.yy",
+    "name":"spr_teia",
+    "path":"sprites/spr_teia/spr_teia.yy",
   },
   "spriteMaskId":null,
   "visible":true,

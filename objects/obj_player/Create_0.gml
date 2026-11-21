@@ -54,6 +54,16 @@ tempo_paralisia = 180;
 //mina
 tempo_mina = 240;
 
+//recarga
+recarga_clone = false;
+recarga_circulo = false;
+recarga_portal = false;
+recarga_invisivel = false;
+recarga_escudo = false;
+recarga_distrair = false;
+recarga_mina = false;
+recarga_paralisa = false;
+
 //tempo dos efeitos
 //Superaquecimento
 //tempo que o fogo dura
@@ -245,11 +255,13 @@ habilidade = function()
     //clone
     if (usei_clone == false and clone_botao and global.clone and tempo_clone == 120) {
     	usei_clone = true;
+        recarga_clone = true;
     }
     
     //ativando o circulo de energia
     if (usei_circu == false and circu_botao and global.circulo and tempo_circu == 120) {
     	usei_circu = true;
+        recarga_circulo = true;
     }
     
     //mini player
@@ -284,11 +296,13 @@ habilidade = function()
     //e eu ainda não tenha usado a habilidade
     if (global.invisivel and invisivel_botao and usei_invi == false and tempo_invisivel == 120) {
         usei_invi = true;
+        recarga_invisivel = true;
     }
     
     //escudo
     if (global.escudo and escudo_botao and !instance_exists(obj_escudo) and tempo_escudo == 240) {
     	instance_create_depth(x, y, depth+1, obj_escudo);
+        recarga_escudo = true;
     }
     
     //portal
@@ -307,6 +321,7 @@ habilidade = function()
             posy = y;
             instance_create_layer(posx, posy, layer, obj_tp);
             usei_portal = true;
+            recarga_portal = true;
         }
     }
     
@@ -314,18 +329,21 @@ habilidade = function()
     if (global.distrair and distrair_botao and tempo_distrai == 160) {
     	instance_create_layer(x, y, layer, obj_bala_distrai_player);
         tempo_distrai--;
+        recarga_distrair = true;
     }
     
     //tiro paralisa
     if (global.paralisante and paralisa_botao and tempo_paralisia == 180 and instance_exists(obj_inimigo)) {
     	instance_create_layer(x, y, layer, obj_bala_paralisa_player);
         tempo_paralisia--;
+        recarga_paralisa = true;
     }
     
     //mina
     if (global.mina and mina_botao and tempo_mina == 240) {
     	instance_create_layer(x, y, layer, obj_mina);
         tempo_mina--;
+        recarga_mina = true;
     }
     
 }
@@ -344,6 +362,9 @@ habilidade_uso = function()
     }
     if (usei_clone == false and tempo_clone < 120) {
     	tempo_clone++;
+    }
+    else if (usei_clone == false and tempo_clone == 120) {
+    	recarga_clone = false;
     }
     
     //circulo de energia
@@ -374,6 +395,9 @@ habilidade_uso = function()
     {
     	tempo_circu++;
     }
+    else if (usei_circu == false and tempo_circu == 120) {
+    	recarga_circulo = false;
+    }
     
     //tiro teleguiado
     if (usei_teleguiado) {
@@ -401,6 +425,9 @@ habilidade_uso = function()
     if (tempo_invisivel != 120 and usei_invi == false) {
     	tempo_invisivel++;
     }
+    else if (usei_invi == false and tempo_invisivel == 120) {
+    	recarga_invisivel = false;
+    }
     
     //escudo
     if (instance_exists(obj_escudo)) {
@@ -413,6 +440,9 @@ habilidade_uso = function()
     if (tempo_escudo != 240 and !instance_exists(obj_escudo)) {
         tempo_escudo++;
     }
+    else if (instance_exists(obj_escudo) == false and tempo_escudo == 240) {
+    	recarga_escudo = false;
+    }
     
     //portal
     if (tempo_portal < 240 and tempo_portal > 0) {
@@ -420,6 +450,9 @@ habilidade_uso = function()
     }
     else if (tempo_portal == 0) {
     	tempo_portal = 240;
+    }
+    if (tempo_portal == 240 and !instance_exists(obj_tp)) {
+    	recarga_portal = false;
     }
     
     //tiro distrai
@@ -436,7 +469,10 @@ habilidade_uso = function()
         if (tempo_paralisia <= -180/global.recarga) {
         	tempo_paralisia = 180;
         }
-    } 
+    }
+    if (tempo_paralisia == 180) {
+    	recarga_paralisa = false;
+    }
     
     //mina
     if (tempo_mina != 240) {
@@ -444,6 +480,9 @@ habilidade_uso = function()
         if (tempo_mina <= -240/global.recarga) {
         	tempo_mina = 240;
         }
+    }
+    if (tempo_mina == 240) {
+    	recarga_mina = false;
     }
 }
 //desenha habilidades

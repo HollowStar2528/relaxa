@@ -28,20 +28,21 @@ vendo = function()
     if (preco <= global.moedas)
     {
         som(snd_escolhi);
-        if (def_vendo == "recarga" and global.recarga < 2.5) 
+        if (def_vendo == "recarga" and global.recarga < 2.6) 
         {
             global.moedas -= preco;
-            global.recarga+=0.5;
+            global.recarga+=0.2;
             preco *= 2;
         }
-        else if (def_vendo == "recarga" and global.recarga == 2.5) {
+        else if (def_vendo == "recarga" and global.recarga == 2.6) {
         	instance_destroy();
         }
-        if (def_vendo == "penetração" and global.penetracao < 5) 
+        if (def_vendo == "penetração" and global.penetracao < 1) 
         {
             global.moedas -= preco;
             global.penetracao++;
             preco *= 2;
+            instance_destroy();
         }
         else if (def_vendo == "penetração" and global.penetracao == 5) {
         	instance_destroy();
@@ -49,7 +50,7 @@ vendo = function()
         if (def_vendo == "defesa")
         {
             global.moedas -= preco;
-            global.defesa++;
+            global.defesa+=0.2;
             preco *= 2;
         }
         else if (def_vendo == "defesa" and global.defesa == 2) {
@@ -60,8 +61,9 @@ vendo = function()
             global.moedas -= preco;
             global.fortuna++;
             preco *= 5;
+            instance_destroy();
         }
-        else if (def_vendo == "fortuna" and global.fortuna == 3) {
+        else if (def_vendo == "fortuna" and global.fortuna == 2) {
         	instance_destroy();
         }
         if (def_vendo == "velocidade da bala" and global.vel_bala < 2.5)
@@ -73,12 +75,12 @@ vendo = function()
         else if (def_vendo == "velocidade da bala" and global.vel_bala == 2.5) {
         	instance_destroy();
         }
-        if (def_vendo == "tamanho da bala" and global.tamanho_bala < 2.6) {
+        if (def_vendo == "tamanho da bala" and global.tamanho_bala < 2) {
         	global.moedas -= preco;
             global.tamanho_bala += .2;
             preco*= 2;
         }
-        else if (def_vendo == "tamanho da bala" and global.tamanho_bala == 2.6) {
+        else if (def_vendo == "tamanho da bala" and global.tamanho_bala == 2) {
         	instance_destroy();
         }
         if (def_vendo == "velocidade" and global.velocidade < 3) {

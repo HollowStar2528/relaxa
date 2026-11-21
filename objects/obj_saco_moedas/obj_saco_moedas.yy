@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_saco_moedas",
-    "path":"sprites/spr_saco_moedas/spr_saco_moedas.yy",
+    "name":"spr_cristais",
+    "path":"sprites/spr_cristais/spr_cristais.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -8,7 +8,7 @@ global.quant_habili = [];
 global.imput = [ord("Q"), ord("E"), ord("R"), ord("F"), ord("C"), vk_shift, vk_control, vk_space];
 global.ativas = [];
 //mira do inimigo
-global.mira_ini = obj_player
+global.mira_ini = obj_player;
 //pausado
 global.pause = false;
 //colidi
