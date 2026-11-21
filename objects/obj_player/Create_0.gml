@@ -101,9 +101,15 @@ if (global.pc == false) {
     mina_botao = false;
 }
 
+if (global.pc == false) {
+    velh = 0;
+    velv = 0;
+}
+
 #endregion
 
 #region Metodos
+
 //criando metodo para pegar os imputs do jogador
 pega_imput = function()
 {
@@ -121,7 +127,6 @@ pega_imput = function()
         right = keyboard_check(ord("A")) or keyboard_check(vk_left);
         left = keyboard_check(ord("D")) or keyboard_check(vk_right);
     }
-    
     if (global.pc) {
         //habilidades
         //botão para invocar o clone

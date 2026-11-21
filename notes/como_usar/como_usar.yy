@@ -1,0 +1,11 @@
+{
+  "$GMNotes":"v1",
+  "%Name":"como_usar",
+  "name":"como_usar",
+  "parent":{
+    "name":"Joystick",
+    "path":"folders/Notes/Joystick.yy",
+  },
+  "resourceType":"GMNotes",
+  "resourceVersion":"2.0",
+}

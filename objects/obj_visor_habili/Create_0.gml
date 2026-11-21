@@ -14,7 +14,7 @@ amostra_habilidade = function()
     	image_alpha = 0;
     }
     else {
-    	image_alpha = 1;
+    	image_alpha = 0.8;
         //minha sprite muda dependendo da minha primeira habilidade ativa
         var _ordem, _habilidade, _qual;
         _habilidade = array_get_index(global.ativas, peguei);
