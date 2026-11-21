@@ -37,7 +37,7 @@ vendo = function()
         else if (def_vendo == "recarga" and global.recarga == 2.6) {
         	instance_destroy();
         }
-        if (def_vendo == "penetração" and global.penetracao < 1) 
+        if (def_vendo == "penetração" and global.penetracao < 2) 
         {
             global.moedas -= preco;
             global.penetracao++;

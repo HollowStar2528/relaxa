@@ -88,7 +88,7 @@ function reset()
     global.mina = false;
     
     //VARIAVEIS
-    global.pontos_requeridos = 10;
+    global.pontos_requeridos = 1;
     global.pontos = 0;
     global.moedas = 0;
     //mira do inimigo

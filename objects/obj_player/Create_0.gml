@@ -81,6 +81,26 @@ tempo_lento = 60*5
 //pego no radar inimigo
 radar = false;
 
+if (global.pc == false) {
+    //habilidades
+    //botão para invocar o clone
+    clone_botao = false;
+    //botão para usar o circulo de energia
+    circu_botao = false;
+    //botão para usar a invisibilidade
+    invisivel_botao = false;
+    //botão para usar o escudo
+    escudo_botao = false;
+    //botão para usar o portal
+    portal_botao = false;
+    //botão para atirar a distração
+    distrair_botao = false;
+    //botão para atirar o paralizante
+    paralisa_botao = false;
+    //botão para colocar mina no chão
+    mina_botao = false;
+}
+
 #endregion
 
 #region Metodos
@@ -102,23 +122,25 @@ pega_imput = function()
         left = keyboard_check(ord("D")) or keyboard_check(vk_right);
     }
     
-    //habilidades
-    //botão para invocar o clone
-    clone_botao = keyboard_check_pressed(array_get(global.imput, 0));
-    //botão para usar o circulo de energia
-    circu_botao = keyboard_check_pressed(array_get(global.imput, 1));
-    //botão para usar a invisibilidade
-    invisivel_botao = keyboard_check_pressed(array_get(global.imput, 2));
-    //botão para usar o escudo
-    escudo_botao = keyboard_check_pressed(array_get(global.imput, 3));
-    //botão para usar o portal
-    portal_botao = keyboard_check_pressed(array_get(global.imput, 7));
-    //botão para atirar a distração
-    distrair_botao = keyboard_check_pressed(array_get(global.imput, 4));
-    //botão para atirar o paralizante
-    paralisa_botao = keyboard_check_pressed(array_get(global.imput, 6));
-    //botão para colocar mina no chão
-    mina_botao = keyboard_check_pressed(array_get(global.imput, 5));
+    if (global.pc) {
+        //habilidades
+        //botão para invocar o clone
+        clone_botao = keyboard_check_pressed(array_get(global.imput, 0));
+        //botão para usar o circulo de energia
+        circu_botao = keyboard_check_pressed(array_get(global.imput, 1));
+        //botão para usar a invisibilidade
+        invisivel_botao = keyboard_check_pressed(array_get(global.imput, 2));
+        //botão para usar o escudo
+        escudo_botao = keyboard_check_pressed(array_get(global.imput, 3));
+        //botão para usar o portal
+        portal_botao = keyboard_check_pressed(array_get(global.imput, 7));
+        //botão para atirar a distração
+        distrair_botao = keyboard_check_pressed(array_get(global.imput, 4));
+        //botão para atirar o paralizante
+        paralisa_botao = keyboard_check_pressed(array_get(global.imput, 6));
+        //botão para colocar mina no chão
+        mina_botao = keyboard_check_pressed(array_get(global.imput, 5));
+    }
 }
 //criando um metodo para controlar o jogador
 controla_player = function()
@@ -337,6 +359,7 @@ habilidade = function()
     	instance_create_layer(x, y, layer, obj_bala_paralisa_player);
         tempo_paralisia--;
         recarga_paralisa = true;
+        tempo_paralisia = false;
     }
     
     //mina
@@ -394,6 +417,7 @@ habilidade_uso = function()
     if (tempo_circu != 120 and usei_circu == false) 
     {
     	tempo_circu++;
+        circu_botao = false;
     }
     else if (usei_circu == false and tempo_circu == 120) {
     	recarga_circulo = false;
@@ -424,6 +448,7 @@ habilidade_uso = function()
     //resetando o tempo
     if (tempo_invisivel != 120 and usei_invi == false) {
     	tempo_invisivel++;
+        invisivel_botao = false;
     }
     else if (usei_invi == false and tempo_invisivel == 120) {
     	recarga_invisivel = false;
@@ -452,13 +477,18 @@ habilidade_uso = function()
     	tempo_portal = 240;
     }
     if (tempo_portal == 240 and !instance_exists(obj_tp)) {
+        portal_botao = false;
     	recarga_portal = false;
+    }
+    if (instance_exists(obj_tp)) {
+    	portal_botao = false;
     }
     
     //tiro distrai
     if (tempo_distrai != 160) {
     	tempo_distrai--;
         if (tempo_distrai <= -160/global.recarga) {
+            distrair_botao = false;
         	tempo_distrai = 160;
         }
     } 
@@ -471,6 +501,7 @@ habilidade_uso = function()
         }
     }
     if (tempo_paralisia == 180) {
+        paralisa_botao = false;
     	recarga_paralisa = false;
     }
     
@@ -482,6 +513,7 @@ habilidade_uso = function()
         }
     }
     if (tempo_mina == 240) {
+        mina_botao = false;
     	recarga_mina = false;
     }
 }

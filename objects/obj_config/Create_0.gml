@@ -85,6 +85,7 @@ roda_debug = function ()
     view_player = dbg_view("View player", 1, 0, 19, 400, 400);
     //vendo algumas informações
     dbg_watch(ref_create(obj_player, "vida"), "Vida");
+    dbg_watch(ref_create(obj_player, "circu_botao"), "circu_botao");
     dbg_watch(ref_create(global, "moedas"), "Moedas");
     dbg_watch(ref_create(global, "nivel"), "nivel");
     dbg_watch(ref_create(global, "pontos"), "Pontuação");
