@@ -37,6 +37,7 @@
     {"name":"inst_5EC359","path":"rooms/rm_gameplay/rm_gameplay.yy",},
     {"name":"inst_76CAC9AC","path":"rooms/rm_gameplay/rm_gameplay.yy",},
     {"name":"inst_7FF996AE","path":"rooms/rm_gameplay/rm_gameplay.yy",},
+    {"name":"inst_4F268534","path":"rooms/rm_gameplay/rm_gameplay.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -44,9 +45,10 @@
         {"$GMRInstance":"v4","%Name":"inst_7FF996AE","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7FF996AE","objectId":{"name":"obj_joystick","path":"objects/obj_joystick/obj_joystick.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_joystick","path":"objects/obj_joystick/obj_joystick.yy",},"propertyId":{"name":"target","path":"objects/obj_joystick/obj_joystick.yy",},"resource":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"obj_player",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":76.0,"y":693.0,},
+        {"$GMRInstance":"v4","%Name":"inst_4F268534","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4F268534","objectId":{"name":"obj_loja","path":"objects/obj_loja/obj_loja.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1334.0,"y":32.0,},
       ],"layers":[],"name":"ins_joystick","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"ass_hud","assets":[
-        {"$GMRSpriteGraphic":"v1","%Name":"graphic_7C1184B1","animationSpeed":0.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_7C1184B1","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"spr_cristais","path":"sprites/spr_cristais/spr_cristais.yy",},"x":1338.0,"y":28.0,},
+        {"$GMRSpriteGraphic":"v1","%Name":"graphic_7C1184B1","animationSpeed":0.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_7C1184B1","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"spr_cristais","path":"sprites/spr_cristais/spr_cristais.yy",},"x":1287.0,"y":28.0,},
       ],"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"ass_hud","properties":[],"resourceType":"GMRAssetLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"ins_loja","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_6CF7DA32","colour":4291611750,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6CF7DA32","objectId":{"name":"obj_tela","path":"objects/obj_tela/obj_tela.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.03125,"scaleY":1.1416667,"x":693.0,"y":368.5,},

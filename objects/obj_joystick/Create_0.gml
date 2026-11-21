@@ -1,6 +1,9 @@
 if (global.pc) {
 	instance_destroy();
 }
+if (global.pause) {
+	exit;
+}
 /// @description Insert description here
 // You can write your code in this editor
 

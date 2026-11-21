@@ -1,3 +1,6 @@
+if (global.pc == false) {
+	instance_destroy();
+}
 //criando uma array
 menu = ["Jogar", "Som", "Tutorial", "Sair"];
 //criando uma váriavel atual

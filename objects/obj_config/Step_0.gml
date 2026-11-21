@@ -10,7 +10,7 @@ if (global.pc) {
     window_set_cursor(cr_none);
 }
 config_xp();
-ativa_debug();
+//ativa_debug();
 //vendo algumas informações
 //show_debug_message(global.nivel);
 //show_debug_message(global.quant_habili);
