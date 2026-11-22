@@ -30,7 +30,7 @@ global.cegado = false;
 //lentidão
 global.lento = false;
 //global para sons e musicas
-global.som = false;
-global.musica = false;
+global.som = true;
+global.musica = true;
 //variavel para dizer se eu estou no pc ou não
 global.pc = false;
